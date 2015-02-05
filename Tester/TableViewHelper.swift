@@ -33,7 +33,6 @@ class TableViewHelper {
         indexedCells[indexPath] = newCell
     }
     
-    
     func hideCell(name:String) {
         var removePaths = [NSIndexPath]()
         var removeSections = NSMutableIndexSet()
@@ -117,11 +116,23 @@ class TableViewHelper {
         
         return nil
     }
-    
+	
+	func indexPathsForCellNamed(name:String) -> [NSIndexPath] {
+		var paths = [NSIndexPath]()
+		for path in indexedCells.keys {
+			let cell = indexedCells[path]!
+			if cell.name == name {
+				paths.append(path)
+			}
+		}
+		
+		return paths
+	}
+	
     func visibleCellsWithName(name:String) -> [UITableViewCell] {
         var matchingCells = [UITableViewCell]()
         for cell in cells {
-            if cell.name == name {
+            if cell.name == name && cell.visible {
                 matchingCells.append(cell.tableViewCell)
             }
         }
