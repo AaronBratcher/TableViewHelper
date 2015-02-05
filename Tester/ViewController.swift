@@ -27,6 +27,9 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         helper!.addCell(2, cell: tableView.dequeueReusableCellWithIdentifier("S2R2")! as UITableViewCell, name: "S2R2")
 		
 		helper!.addCell(3, cell: tableView.dequeueReusableCellWithIdentifier("S3R0")! as UITableViewCell, name: "S3R0")
+		
+		helper!.hideCell("S0R1")
+		helper!.hideCell("S1R0")
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -37,6 +40,14 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return helper!.numberOfRowsInSection(section)
     }
+	
+	func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+		if indexPath.section == 0 && indexPath.row == 1 {
+			return 193
+		}
+		
+		return tableView.rowHeight
+	}
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         return helper!.cellForRowAtIndexPath(indexPath)
@@ -50,6 +61,8 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
 			case "S0R0":
 				if !helper!.cellIsVisible("S0R1") {
 					helper?.showCell("S0R1")
+				} else {
+					helper?.hideCell("S0R1")
 				}
 
 			case "S0R1":
@@ -59,12 +72,18 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
 				helper?.showCell("S2R0")
 				helper?.showCell("S2R1")
 				helper?.showCell("S2R2")
+				helper?.hideCell(name)
 				
 			case "S3R0":
 				break
 
 			default:
 				helper!.hideCell(name)
+				helper!.showCell("S1R0")
+			}
+
+			if name != "S0R0" {
+				helper?.hideCell("S0R1")
 			}
 		}
 	}
