@@ -5,7 +5,7 @@ See the included sample for full usage.
 
 
 
-##Usage##
+##Basics##
 Instantiate a copy of the class with a reference to the tableView:
 ```swift
 helper = TableViewHelper(tableView:tableView)
@@ -41,6 +41,3 @@ helper!.hideCell("S0R1")
 helper!.hideCell("S1R0")
 helper!.showCell("S1R0")
 ```
-
-
-
