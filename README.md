@@ -1,8 +1,7 @@
 # TableViewHelper
-Swift class to easily hide and show UITableView Rows
+Swift class to dynamically hide and show UITableView Rows.
 
-See the included sample for full usage.
-
+See the included sample app.
 
 
 ##Basics##
@@ -35,9 +34,28 @@ func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexP
 }
 ```
 
-Hide or show cells by name:
+Hide or show cells by name (if multiple cells have the same name, then all with that name are shown or hidden):
 ```swift
 helper!.hideCell("S0R1")
 helper!.hideCell("S1R0")
 helper!.showCell("S1R0")
+```
+
+##All public methods##
+```swift
+init(tableView:UITableView)
+func addCell(section:Int, cell:UITableViewCell, name:String)
+
+func hideCell(name:String)
+func showCell(name:String)
+
+func cellNameAtIndexPath(indexPath:NSIndexPath) -> String?
+func indexPathForCellNamed(name:String) -> NSIndexPath? // first matching cell
+func indexPathsForCellNamed(name:String) -> [NSIndexPath]
+func visibleCellsWithName(name:String) -> [UITableViewCell]
+func cellIsVisible(name:String) -> Bool // // returns true if ALL cells with that name are visible
+
+func numberOfSections() -> Int
+func numberOfRowsInSection(section: Int) -> Int
+func cellForRowAtIndexPath(indexPath: NSIndexPath) -> UITableViewCell
 ```
