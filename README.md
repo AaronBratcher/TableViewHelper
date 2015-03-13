@@ -18,7 +18,7 @@ helper!.addCell(0, cell: tableView.dequeueReusableCellWithIdentifier("S0R1")! as
 helper!.addCell(1, cell: tableView.dequeueReusableCellWithIdentifier("S1R0")! as UITableViewCell, name: "S1R0")
 ```
 
-Reference the helper class for most of the UITableView source and delegate calls:
+Reference the helper class for relevant UITableView source and delegate calls:
 ```swift
 func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     let count = helper!.numberOfSections()
