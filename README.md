@@ -17,11 +17,10 @@ helper!.addCell(0, cell: tableView.dequeueReusableCellWithIdentifier("S0R1")! as
 helper!.addCell(1, cell: tableView.dequeueReusableCellWithIdentifier("S1R0")! as UITableViewCell, name: "S1R0")
 ```
 
-Reference the helper class for relevant UITableView source and delegate calls:
+Reference the helper class for relevant UITableView calls:
 ```swift
 func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-    let count = helper!.numberOfSections()
-    return count
+    return helper!.numberOfSections()
 }
 
 func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -35,8 +34,8 @@ func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexP
 
 Hide or show cells by name (if multiple cells have the same name, then all with that name are shown or hidden):
 ```swift
+helper!.hideCell("S0R0")
 helper!.hideCell("S0R1")
-helper!.hideCell("S1R0")
 helper!.showCell("S1R0")
 ```
 
