@@ -9,7 +9,7 @@ Instantiate a copy of the class with a reference to the tableView:
 helper = TableViewHelper(tableView:tableView)
 ```
 
-Add all possible cells to the helper giving each a name (multiple cells can have the same name):
+Add all cells that can show to the helper giving each cell a name (multiple cells can have the same name):
 ```swift
 helper!.addCell(0, cell: tableView.dequeueReusableCellWithIdentifier("S0R0")! as UITableViewCell, name: "S0R0")
 helper!.addCell(0, cell: tableView.dequeueReusableCellWithIdentifier("S0R1")! as UITableViewCell, name: "S0R1")
