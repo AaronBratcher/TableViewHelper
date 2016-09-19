@@ -12,33 +12,7 @@
 		89004F5319DD8BF800AAFC0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89004F5119DD8BF800AAFC0E /* Main.storyboard */; };
 		89004F5519DD8BF800AAFC0E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89004F5419DD8BF800AAFC0E /* Images.xcassets */; };
 		89004F5819DD8BF800AAFC0E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89004F5619DD8BF800AAFC0E /* LaunchScreen.xib */; };
-		89F5AE231D90881900E3C870 /* TableViewHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89F5AE1D1D90861300E3C870 /* TableViewHelper.framework */; };
-		89F5AE241D90881900E3C870 /* TableViewHelper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 89F5AE1D1D90861300E3C870 /* TableViewHelper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		89F5AE1C1D90861300E3C870 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 89F5AE171D90861300E3C870 /* TableViewHelper.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 89F5ADD71D9070E300E3C870;
-			remoteInfo = TableViewHelper;
-		};
-		89F5AE1E1D90861300E3C870 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 89F5AE171D90861300E3C870 /* TableViewHelper.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 89F5ADE01D9070E300E3C870;
-			remoteInfo = TableViewHelperTests;
-		};
-		89F5AE251D90881900E3C870 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 89F5AE171D90861300E3C870 /* TableViewHelper.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 89F5ADD61D9070E300E3C870;
-			remoteInfo = TableViewHelper;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		89F5AE271D90881900E3C870 /* Embed Frameworks */ = {
@@ -47,7 +21,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				89F5AE241D90881900E3C870 /* TableViewHelper.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -62,7 +35,6 @@
 		89004F5219DD8BF800AAFC0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		89004F5419DD8BF800AAFC0E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		89004F5719DD8BF800AAFC0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		89F5AE171D90861300E3C870 /* TableViewHelper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TableViewHelper.xcodeproj; path = TableViewHelper/TableViewHelper.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +42,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89F5AE231D90881900E3C870 /* TableViewHelper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,7 +51,6 @@
 		89004F3F19DD8BF800AAFC0E = {
 			isa = PBXGroup;
 			children = (
-				89F5AE171D90861300E3C870 /* TableViewHelper.xcodeproj */,
 				89004F4A19DD8BF800AAFC0E /* Tester */,
 				89004F4919DD8BF800AAFC0E /* Products */,
 			);
@@ -115,15 +85,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		89F5AE181D90861300E3C870 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				89F5AE1D1D90861300E3C870 /* TableViewHelper.framework */,
-				89F5AE1F1D90861300E3C870 /* TableViewHelperTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,7 +100,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				89F5AE261D90881900E3C870 /* PBXTargetDependency */,
 			);
 			name = Tester;
 			productName = Tester;
@@ -172,35 +132,12 @@
 			mainGroup = 89004F3F19DD8BF800AAFC0E;
 			productRefGroup = 89004F4919DD8BF800AAFC0E /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 89F5AE181D90861300E3C870 /* Products */;
-					ProjectRef = 89F5AE171D90861300E3C870 /* TableViewHelper.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				89004F4719DD8BF800AAFC0E /* Tester */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		89F5AE1D1D90861300E3C870 /* TableViewHelper.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = TableViewHelper.framework;
-			remoteRef = 89F5AE1C1D90861300E3C870 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		89F5AE1F1D90861300E3C870 /* TableViewHelperTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = TableViewHelperTests.xctest;
-			remoteRef = 89F5AE1E1D90861300E3C870 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		89004F4619DD8BF800AAFC0E /* Resources */ = {
@@ -226,14 +163,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		89F5AE261D90881900E3C870 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = TableViewHelper;
-			targetProxy = 89F5AE251D90881900E3C870 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		89004F5119DD8BF800AAFC0E /* Main.storyboard */ = {
