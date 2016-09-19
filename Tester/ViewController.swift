@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TableViewHelper
 
 class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
@@ -17,44 +18,44 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     override func viewDidLoad() {
         helper = TableViewHelper(tableView:tableView)
         
-        helper!.addCell(0, cell: tableView.dequeueReusableCellWithIdentifier("S0R0")! as UITableViewCell, name: "S0R0")
-        helper!.addCell(0, cell: tableView.dequeueReusableCellWithIdentifier("S0R1")! as UITableViewCell, name: "S0R1")
+        helper!.addCell(0, cell: tableView.dequeueReusableCell(withIdentifier: "S0R0")! as UITableViewCell, name: "S0R0")
+        helper!.addCell(0, cell: tableView.dequeueReusableCell(withIdentifier: "S0R1")! as UITableViewCell, name: "S0R1")
 
-		helper!.addCell(1, cell: tableView.dequeueReusableCellWithIdentifier("S1R0")! as UITableViewCell, name: "S1R0")
+		helper!.addCell(1, cell: tableView.dequeueReusableCell(withIdentifier: "S1R0")! as UITableViewCell, name: "S1R0")
 
-        helper!.addCell(2, cell: tableView.dequeueReusableCellWithIdentifier("S2R0")! as UITableViewCell, name: "S2R0")
-        helper!.addCell(2, cell: tableView.dequeueReusableCellWithIdentifier("S2R1")! as UITableViewCell, name: "S2R1")
-        helper!.addCell(2, cell: tableView.dequeueReusableCellWithIdentifier("S2R2")! as UITableViewCell, name: "S2R2")
+        helper!.addCell(2, cell: tableView.dequeueReusableCell(withIdentifier: "S2R0")! as UITableViewCell, name: "S2R0")
+        helper!.addCell(2, cell: tableView.dequeueReusableCell(withIdentifier: "S2R1")! as UITableViewCell, name: "S2R1")
+        helper!.addCell(2, cell: tableView.dequeueReusableCell(withIdentifier: "S2R2")! as UITableViewCell, name: "S2R2")
 		
-		helper!.addCell(3, cell: tableView.dequeueReusableCellWithIdentifier("S3R0")! as UITableViewCell, name: "S3R0")
+		helper!.addCell(3, cell: tableView.dequeueReusableCell(withIdentifier: "S3R0")! as UITableViewCell, name: "S3R0")
 		
 		helper!.hideCell("S0R1")
 		helper!.hideCell("S1R0")
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         let count = helper!.numberOfSections()
         return count
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return helper!.numberOfRowsInSection(section)
     }
 	
-	func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-		if indexPath.section == 0 && indexPath.row == 1 {
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		if (indexPath as NSIndexPath).section == 0 && (indexPath as NSIndexPath).row == 1 {
 			return 193
 		}
 		
 		return tableView.rowHeight
 	}
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return helper!.cellForRowAtIndexPath(indexPath)
     }
 	
-	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-		tableView.deselectRowAtIndexPath(indexPath, animated: true)
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		tableView.deselectRow(at: indexPath, animated: true)
 		
 		if let name = helper!.cellNameAtIndexPath(indexPath) {
 			switch name {
@@ -89,8 +90,8 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
 	}
     
     
-    @IBAction func showHideCell(sender: AnyObject) {
-        let button = sender as UIButton
+    @IBAction func showHideCell(_ sender: AnyObject) {
+        let button = sender as! UIButton
         let label = button.titleLabel!
         let title = label.text!
         

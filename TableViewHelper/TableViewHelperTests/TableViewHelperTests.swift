@@ -1,15 +1,15 @@
 //
-//  TesterTests.swift
-//  TesterTests
+//  TableViewHelperTests.swift
+//  TableViewHelperTests
 //
-//  Created by Aaron Bratcher on 10/02/2014.
-//  Copyright (c) 2014 Aaron L. Bratcher. All rights reserved.
+//  Created by Aaron Bratcher on 9/19/16.
+//  Copyright © 2016 Aaron Bratcher. All rights reserved.
 //
 
-import UIKit
 import XCTest
+@testable import TableViewHelper
 
-class TesterTests: XCTestCase {
+class TableViewHelperTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -23,12 +23,12 @@ class TesterTests: XCTestCase {
     
     func testExample() {
         // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock() {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }
