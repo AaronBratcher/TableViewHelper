@@ -13,33 +13,33 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     @IBOutlet weak var tableView: UITableView!
     
-    var helper:TableViewHelper?
+    var helper:TableViewHelper!
 
     override func viewDidLoad() {
         helper = TableViewHelper(tableView:tableView)
         
-        helper!.addCell(0, cell: tableView.dequeueReusableCell(withIdentifier: "S0R0")! as UITableViewCell, name: "S0R0")
-        helper!.addCell(0, cell: tableView.dequeueReusableCell(withIdentifier: "S0R1")! as UITableViewCell, name: "S0R1")
+        helper.addCell(0, cell: tableView.dequeueReusableCell(withIdentifier: "S0R0")! as UITableViewCell, name: "S0R0")
+        helper.addCell(0, cell: tableView.dequeueReusableCell(withIdentifier: "S0R1")! as UITableViewCell, name: "S0R1")
 
-		helper!.addCell(1, cell: tableView.dequeueReusableCell(withIdentifier: "S1R0")! as UITableViewCell, name: "S1R0")
+		helper.addCell(1, cell: tableView.dequeueReusableCell(withIdentifier: "S1R0")! as UITableViewCell, name: "S1R0")
 
-        helper!.addCell(2, cell: tableView.dequeueReusableCell(withIdentifier: "S2R0")! as UITableViewCell, name: "S2R0")
-        helper!.addCell(2, cell: tableView.dequeueReusableCell(withIdentifier: "S2R1")! as UITableViewCell, name: "S2R1")
-        helper!.addCell(2, cell: tableView.dequeueReusableCell(withIdentifier: "S2R2")! as UITableViewCell, name: "S2R2")
+        helper.addCell(2, cell: tableView.dequeueReusableCell(withIdentifier: "S2R0")! as UITableViewCell, name: "S2R0")
+        helper.addCell(2, cell: tableView.dequeueReusableCell(withIdentifier: "S2R1")! as UITableViewCell, name: "S2R1")
+        helper.addCell(2, cell: tableView.dequeueReusableCell(withIdentifier: "S2R2")! as UITableViewCell, name: "S2R2")
 		
-		helper!.addCell(3, cell: tableView.dequeueReusableCell(withIdentifier: "S3R0")! as UITableViewCell, name: "S3R0")
+		helper.addCell(3, cell: tableView.dequeueReusableCell(withIdentifier: "S3R0")! as UITableViewCell, name: "S3R0")
 		
-		helper!.hideCell("S0R1")
-		helper!.hideCell("S1R0")
+		helper.hideCell("S0R1")
+		helper.hideCell("S1R0")
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        let count = helper!.numberOfSections()
+        let count = helper.numberOfSections()
         return count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return helper!.numberOfRowsInSection(section)
+        return helper.numberOfRowsInSection(section)
     }
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -51,16 +51,16 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
 	}
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return helper!.cellForRowAtIndexPath(indexPath)
+        return helper.cellForRowAtIndexPath(indexPath)
     }
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
 		
-		if let name = helper!.cellNameAtIndexPath(indexPath) {
+		if let name = helper.cellNameAtIndexPath(indexPath) {
 			switch name {
 			case "S0R0":
-				if !helper!.cellIsVisible("S0R1") {
+				if !helper.cellIsVisible("S0R1") {
 					helper?.showCell("S0R1")
 				} else {
 					helper?.hideCell("S0R1")
@@ -79,8 +79,8 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
 				break
 
 			default:
-				helper!.hideCell(name)
-				helper!.showCell("S1R0")
+				helper.hideCell(name)
+				helper.showCell("S1R0")
 			}
 
 			if name != "S0R0" {
@@ -95,10 +95,10 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         let label = button.titleLabel!
         let title = label.text!
         
-        if helper!.cellIsVisible(title) {
-            helper!.hideCell(title)
+        if helper.cellIsVisible(title) {
+            helper.hideCell(title)
         } else {
-            helper!.showCell(title)
+            helper.showCell(title)
         }
     }
     
