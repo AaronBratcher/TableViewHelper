@@ -3,11 +3,11 @@ Swift Struct to dynamically hide and show UITableView Rows by name. This is writ
 
 Includes sample app.
 
-##Installation##
+##Installation
 - Cocoapods
 - Include TableViewHelper.swift in your project
 
-##Basics##
+##Basics
 Instantiate a copy of the class with a reference to the tableView:
 ```swift
 helper = TableViewHelper(tableView:tableView)
