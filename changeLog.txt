@@ -1,0 +1,5 @@
+2.1:
+	- Add isInitiallyHidden property to addCell method
+	- Change method names to be more swifty
+	- Add changeLog.txt
+	- Update README.md

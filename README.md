@@ -3,11 +3,11 @@ Swift Struct to dynamically hide and show UITableView Rows by name. This is writ
 
 Includes sample app.
 
-##Installation##
+## Installation ##
 - Cocoapods
 - Include TableViewHelper.swift in your project
 
-##Basics##
+## Basics ##
 Instantiate a copy of the class with a reference to the tableView:
 ```swift
 helper = TableViewHelper(tableView:tableView)
@@ -15,10 +15,10 @@ helper = TableViewHelper(tableView:tableView)
 
 Add all cells that can show to the helper giving each cell a name (multiple cells can have the same name):
 ```swift
-helper.addCell(0, cell: tableView.dequeueReusableCellWithIdentifier("S0R0")! as UITableViewCell, name: "S0R0")
-helper.addCell(0, cell: tableView.dequeueReusableCellWithIdentifier("S0R1")! as UITableViewCell, name: "S0R1")
+helper.addCell(section: 0, cell: tableView.dequeueReusableCellWithIdentifier("S0R0")! as UITableViewCell, name: "S0R0")
+helper.addCell(section: 0, cell: tableView.dequeueReusableCellWithIdentifier("S0R1")! as UITableViewCell, name: "S0R1")
 
-helper.addCell(1, cell: tableView.dequeueReusableCellWithIdentifier("S1R0")! as UITableViewCell, name: "S1R0")
+helper.addCell(section: 1, cell: tableView.dequeueReusableCellWithIdentifier("S1R0")! as UITableViewCell, name: "S1R0")
 ```
 
 Reference the helper class for relevant UITableView calls:
@@ -28,11 +28,11 @@ func numberOfSectionsInTableView(tableView: UITableView) -> Int {
 }
 
 func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return helper.numberOfRowsInSection(section)
+    return helper.numberOfRows(in: section)
 }
 
 func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    return helper.cellForRowAtIndexPath(indexPath)
+    return helper.cellForRow(at: indexPath)
 }
 ```
 
@@ -43,21 +43,21 @@ helper.hideCell("S0R1")
 helper.showCell("S1R0")
 ```
 
-##All public methods##
+## All public methods ##
 ```swift
 init(tableView:UITableView)
-func addCell(section:Int, cell:UITableViewCell, name:String)
+func addCell(section:Int, cell:UITableViewCell, name:String, isInitiallyHidden: Bool = false)
 
-func hideCell(name:String)
-func showCell(name:String)
+func hideCell(_ name:String)
+func showCell(_ name:String)
 
-func cellNameAtIndexPath(indexPath:NSIndexPath) -> String?
-func indexPathForCellNamed(name:String) -> NSIndexPath? // first matching cell
-func indexPathsForCellNamed(name:String) -> [NSIndexPath]
-func visibleCellsWithName(name:String) -> [UITableViewCell]
-func cellIsVisible(name:String) -> Bool // // returns true if ALL cells with that name are visible
+func cellName(at indexPath:NSIndexPath) -> String?
+func indexPathForCell(_ name:String) -> NSIndexPath? // first matching cell
+func indexPathsForCell(_ name:String) -> [NSIndexPath]
+func visibleCells(_ name:String) -> [UITableViewCell]
+func cellIsVisible(_ name:String) -> Bool // // returns true if ALL cells with that name are visible
 
 func numberOfSections() -> Int
-func numberOfRowsInSection(section: Int) -> Int
-func cellForRowAtIndexPath(indexPath: NSIndexPath) -> UITableViewCell
+func numberOfRows(in section: Int) -> Int
+func cellForRow(at indexPath: NSIndexPath) -> UITableViewCell
 ```
