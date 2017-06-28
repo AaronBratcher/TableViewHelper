@@ -18,28 +18,27 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     override func viewDidLoad() {
         helper = TableViewHelper(tableView:tableView)
         
-        helper.addCell(0, cell: tableView.dequeueReusableCell(withIdentifier: "S0R0")! as UITableViewCell, name: "S0R0")
-        helper.addCell(0, cell: tableView.dequeueReusableCell(withIdentifier: "S0R1")! as UITableViewCell, name: "S0R1")
+        helper.addCell(section: 0, cell: tableView.dequeueReusableCell(withIdentifier: "S0R0")! as UITableViewCell, name: "S0R0")
+        helper.addCell(section: 0, cell: tableView.dequeueReusableCell(withIdentifier: "S0R1")! as UITableViewCell, name: "S0R1", isInitiallyHidden: true)
 
-		helper.addCell(1, cell: tableView.dequeueReusableCell(withIdentifier: "S1R0")! as UITableViewCell, name: "S1R0")
+        helper.addCell(section: 1, cell: tableView.dequeueReusableCell(withIdentifier: "S1R0")! as UITableViewCell, name: "S1R0", isInitiallyHidden: true)
 
-        helper.addCell(2, cell: tableView.dequeueReusableCell(withIdentifier: "S2R0")! as UITableViewCell, name: "S2R0")
-        helper.addCell(2, cell: tableView.dequeueReusableCell(withIdentifier: "S2R1")! as UITableViewCell, name: "S2R1")
-        helper.addCell(2, cell: tableView.dequeueReusableCell(withIdentifier: "S2R2")! as UITableViewCell, name: "S2R2")
+        helper.addCell(section: 2, cell: tableView.dequeueReusableCell(withIdentifier: "S2R0")! as UITableViewCell, name: "S2R0")
+        helper.addCell(section: 2, cell: tableView.dequeueReusableCell(withIdentifier: "S2R1")! as UITableViewCell, name: "S2R1")
+        helper.addCell(section: 2, cell: tableView.dequeueReusableCell(withIdentifier: "S2R2")! as UITableViewCell, name: "S2R2")
 		
-		helper.addCell(3, cell: tableView.dequeueReusableCell(withIdentifier: "S3R0")! as UITableViewCell, name: "S3R0")
-		
-		helper.hideCell("S0R1")
-		helper.hideCell("S1R0")
+		helper.addCell(section: 3, cell: tableView.dequeueReusableCell(withIdentifier: "S3R0")! as UITableViewCell, name: "S3R0")
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        helper.hideInitiallyHiddenCells()
+        
         let count = helper.numberOfSections()
         return count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return helper.numberOfRowsInSection(section)
+        return helper.numberOfRows(in: section)
     }
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -51,13 +50,13 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
 	}
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return helper.cellForRowAtIndexPath(indexPath)
+        return helper.cellForRow(at: indexPath)
     }
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
 		
-		if let name = helper.cellNameAtIndexPath(indexPath) {
+        if let name = helper.cellName(at: indexPath) {
 			switch name {
 			case "S0R0":
 				if !helper.cellIsVisible("S0R1") {
