@@ -55,7 +55,7 @@ public class TableViewHelper {
         let removeSections = NSMutableIndexSet()
         
         for section in 0..<numberOfSections() {
-            for row in 0..<numberOfRows(in: section) {
+            for row in 0..<numberOfRows(inSection: section) {
                 let indexPath = IndexPath(row: row, section: section)
                 let cell = indexedCells[indexPath]!
                 if cell.name == name && cell.visible {
@@ -185,7 +185,7 @@ public class TableViewHelper {
         return count
     }
     
-    public func numberOfRows(in section: Int) -> Int {
+    public func numberOfRows(inSection section: Int) -> Int {
         if let count = cellCount[section] {
             return count
         } else {
