@@ -58,6 +58,6 @@ func visibleCells(_ name:String) -> [UITableViewCell]
 func cellIsVisible(_ name:String) -> Bool // // returns true if ALL cells with that name are visible
 
 func numberOfSections() -> Int
-func numberOfRows(in section: Int) -> Int
+func numberOfRows(inSection section: Int) -> Int
 func cellForRow(at indexPath: NSIndexPath) -> UITableViewCell
 ```
