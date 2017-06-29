@@ -48,6 +48,7 @@ helper.showCell("S1R0")
 init(tableView:UITableView)
 func addCell(section:Int, cell:UITableViewCell, name:String, isInitiallyHidden: Bool = false)
 
+func hideInitiallyHiddenCells()
 func hideCell(_ name:String)
 func showCell(_ name:String)
 
