@@ -1,4 +1,5 @@
 # TableViewHelper
+[![CocoaPods](https://img.shields.io/cocoapods/v/TableViewHelper.svg)](https://cocoapods.org/)
 Swift Struct to dynamically hide and show UITableView Rows by name. This is written in Swift 5.
 
 Includes sample app.
