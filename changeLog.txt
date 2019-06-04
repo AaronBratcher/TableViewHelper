@@ -3,3 +3,6 @@
 	- Change method names to be more swifty
 	- Add changeLog.txt
 	- Update README.md
+
+2.2:
+	- Update to Swift 5

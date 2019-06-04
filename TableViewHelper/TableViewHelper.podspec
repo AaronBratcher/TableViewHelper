@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.author             = { "Aaron Bratcher" => "aaronlbratcher@yahoo.com" }
   s.social_media_url   = "http://twitter.com/AaronLBratcher"
 
-  s.platform     = :ios, "9.0"
+  s.platform     = :ios, "10.0"
   s.source       = { :git => "https://github.com/AaronBratcher/TableViewHelper.git", :tag => s.version }
   s.source_files  = "TableViewHelper", "TableViewHelper/TableViewHelper/**/*.{h,m,swift}"
 end
