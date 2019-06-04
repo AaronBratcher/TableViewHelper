@@ -1,6 +1,6 @@
 {
   "name": "TableViewHelper",
-  "version": "2.1",
+  "version": "2.1.1",
   "summary": "Easily hide and show UITableView Rows",
   "homepage": "https://github.com/AaronBratcher/TableViewHelper",
   "license": "MIT",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/AaronBratcher/TableViewHelper.git",
-    "tag": "2.1"
+    "tag": "2.1.1"
   },
   "source_files": [
     "TableViewHelper",
