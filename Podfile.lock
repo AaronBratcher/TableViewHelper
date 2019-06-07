@@ -1,5 +1,5 @@
 PODS:
-  - TableViewHelper (2.1.1)
+  - TableViewHelper (2.2)
 
 DEPENDENCIES:
   - TableViewHelper (from `TableViewHelper`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: TableViewHelper
 
 SPEC CHECKSUMS:
-  TableViewHelper: f1a9e20f9f0459e926962a2b78f3e316d0d914fe
+  TableViewHelper: 5e71a6cc5a5d2d5d9bc9809e17112d2fa4da0379
 
 PODFILE CHECKSUM: 37069cd5b5fecbc4fc7801bab23530e2ebfe046a
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.7.1
